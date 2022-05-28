@@ -1,11 +1,12 @@
-language: generic 
+language: generic
 sudo: required
+
 services:
   - docker
-# before create the image, the needed Steps
+
 before_install:
   - docker build -t wenlizhang/docker-react -f Dockerfile.dev .
-# commands for running the tests
+
 script:
-# never exist p/t/q???
+
   - docker run -e CI=true wenlizhang/docker-react npm run test
