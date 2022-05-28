@@ -4,7 +4,6 @@ services:
 # before create the image, the needed steps
 before_install:
   - docker build -t wenlizhang/docker-react -f Dockerfile.dev .
-  - docker run wenlizhang/docker-react
 # commands for running the tests
 script:
 # never exist p/t/q???
