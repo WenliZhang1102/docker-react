@@ -24,6 +24,7 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-1-612140182725"
   bucket_path: "docker"
   # when in master branch, we deploy
+  # IAM to generate keys
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY

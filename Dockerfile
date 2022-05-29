@@ -7,6 +7,7 @@ RUN npm run build
 
 # just copy the things we care so only build folder
 FROM nginx
+EXPOSE 80
 # copy from another interface
 # copy the relevant folder   
 # [/usr...]that is indicated in the official website of nginx image
