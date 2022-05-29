@@ -11,6 +11,6 @@ EXPOSE 80
 # copy from another interface
 # copy the relevant folder   
 # [/usr...]that is indicated in the official website of nginx image
-COPY --from=builder /app/build /usr/share/ngx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
 
