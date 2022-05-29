@@ -1,12 +1,31 @@
 language: generic
 sudo: required
 
+# before create the image, the needed Steps
 services:
   - docker
 
+# before create the image, the needed Steps!
 before_install:
   - docker build -t wenlizhang/docker-react -f Dockerfile.dev .
 
 script:
-
+# commands for running the tests
+#  never exist p/t/q???
   - docker run -e CI=true wenlizhang/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  # docker repo name
+  app: "docker"
+  env: "Docker-env"
+  # S3 bucket
+  bucket_name: "elasticbeanstalk-us-east-1-612140182725"
+  bucket_path: "docker"
+  # when in master branch, we deploy
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY
